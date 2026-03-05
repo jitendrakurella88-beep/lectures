@@ -8,6 +8,7 @@ import {
   FileText,
   TrendingUp,
   Home,
+  Globe,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -36,6 +37,10 @@ const studentItems = [
   { title: "Dashboard", url: "/student", icon: BookOpen },
   { title: "My Assessments", url: "/student/assessments", icon: FileText },
   { title: "Results", url: "/student/results", icon: TrendingUp },
+];
+
+const settingsItems = [
+  { title: "DNS Settings", url: "/settings/dns", icon: Globe },
 ];
 
 export function AppSidebar() {
@@ -103,6 +108,28 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {studentItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to={item.url}
+                      end
+                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
+                    >
+                      <item.icon className="mr-2 h-4 w-4" />
+                      {!collapsed && <span>{item.title}</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel>Settings</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {settingsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink

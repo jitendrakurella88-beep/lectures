@@ -12,6 +12,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import StudentAssessments from "./pages/StudentAssessments";
 import StudentResults from "./pages/StudentResults";
 import AnalyticsPage from "./pages/AnalyticsPage";
+import DnsSettings from "./pages/DnsSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/student/assessments" element={<StudentAssessments />} />
             <Route path="/student/results" element={<StudentResults />} />
             <Route path="/analytics" element={<AnalyticsPage />} />
+            <Route path="/settings/dns" element={<DnsSettings />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </DashboardLayout>
